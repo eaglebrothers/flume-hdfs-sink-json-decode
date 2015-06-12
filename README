@@ -1,6 +1,7 @@
 if flume event body is json format,decode json string  and save some json field to hdfs.
 
-add two conf property 
+added two conf property 
+
 hdfs.bodyISjson 	#default -
 hdfs.bodyJsonKeys	#json field key,split by ,
 
@@ -36,5 +37,5 @@ githup.com message test!!!
 make jar
 mvn clean package -Dmaven.test.skip=true
 
-cp target/flume-hdfs-sink-1.6.0.jar to  apache-flume-1.6.0-bin/flume-hdfs-sink-1.6.0.jar
+cp target/flume-hdfs-sink-1.6.0.jar to  apache-flume-1.6.0-bin/lib/flume-hdfs-sink-1.6.0.jar
 
