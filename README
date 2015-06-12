@@ -1,0 +1,33 @@
+if flume event body is json format,decode json string  and save some json field to hdfs.
+
+add two conf property 
+hdfs.bodyISjson 	#default -
+hdfs.bodyJsonKeys	#json field key,split by ,
+
+
+eg.   hdfs sink config 
+
+a1.channels = c1
+a1.sinks = k1
+a1.sinks.k1.type = hdfs
+a1.sinks.k1.channel = c1
+a1.sinks.k1.hdfs.filePrefix = events-
+a1.sinks.k1.hdfs.round = true
+a1.sinks.k1.hdfs.roundValue = 10
+a1.sinks.k1.hdfs.roundUnit = minute
+a1.sinks.k1.hdfs.rollSize = 128000000
+a1.sinks.k1.hdfs.rollCount = 0
+a1.sinks.k1.hdfs.rollInterval = 0
+a1.sinks.k1.hdfs.fileType = DataStream
+a1.sinks.k1.hdfs.writeFormat = Text
+a1.sinks.k1.hdfs.callTimeout = 30000
+a1.sinks.k1.hdfs.path = hdfs://hostname/user/flume/%Y/%m/%d/
+a1.sinks.k1.hdfs.bodyISjson = true
+a1.sinks.k1.hdfs.bodyJsonKeys= host,message
+
+
+old json string is 
+{"host","github.com","message":"message test!!!","date":"2015-06-12"}
+
+new hdfs text is 
+githup.com message test!!!
