@@ -31,3 +31,10 @@ old json string is
 
 new hdfs text is 
 githup.com message test!!!
+
+
+make jar
+mvn clean package -Dmaven.test.skip=true
+
+cp target/flume-hdfs-sink-1.6.0.jar to  apache-flume-1.6.0-bin/flume-hdfs-sink-1.6.0.jar
+
